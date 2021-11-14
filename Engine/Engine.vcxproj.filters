@@ -30,12 +30,27 @@
     <ClInclude Include="include\def.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\extern.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\misc.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\types.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\extern.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
