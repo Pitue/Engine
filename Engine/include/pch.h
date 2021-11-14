@@ -26,8 +26,8 @@
 #include <cstdint>
 #include <climits>
 
-#include <GLFW/glfw3.h>
 #include <glad/glad.h>
+#include <GLFW/glfw3.h>
 
 #include <libpng16/png.h>
 #include <mpg123.h>
@@ -35,6 +35,10 @@
 #include <glm/common.hpp>
 
 #include <lua.hpp>
+
+#ifdef _WIN32
+#define _WIN32_WINNT _WIN32_WINNT_WIN10                   
+#endif
 
 #include <asio.hpp>
 #include <cryptopp/whrlpool.h>

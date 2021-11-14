@@ -7,14 +7,14 @@
 #include <Engine/include.h>
 
 int main() {
-    std::cout << "Hello World: ";
-    Engine::PrintMessage();
-    std::cout << "\n";
+	std::cout << "Hello World: ";
+	Engine::PrintMessage();
+	std::cout << "\n";
 
-    auto i = new int{ 8 };
+	auto i = new int{ 8 };
 
-    glm::tvec3<int> vec;
-    
-    _CrtDumpMemoryLeaks();
-    return EXIT_SUCCESS;
+	glm::tvec3<int> vec;
+
+	_CrtDumpMemoryLeaks();
+	return EXIT_SUCCESS;
 }
