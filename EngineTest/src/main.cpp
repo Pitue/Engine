@@ -16,6 +16,11 @@
 
 #include <Engine/include.h>
 
+bool ErrorCallback(std::exception ex) {
+  std::cout << "In error callback";
+  return false;
+}
+
 int main() {
   using namespace std::chrono_literals;
 
@@ -25,10 +30,10 @@ int main() {
 #endif
 
   try {
-    while (1) {
-      std::cout << "It is currently: " << Engine::GetTimeStr() << "\n";
-      std::this_thread::sleep_for(500ms);
-    }
+    Engine::SetErrorCallback(ErrorCallback);
+    Engine::Init(ENGINE_INIT_EVERYTHING);
+
+    Engine::Quit();
   } catch (std::exception &ex) {
     std::cerr << "catched excpetion at main: \"" << ex.what() << "\"\n";
     return EXIT_FAILURE;

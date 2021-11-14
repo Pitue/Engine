@@ -5,8 +5,13 @@
 #include "types.h"
 
 namespace Engine {
-ENGINE_API class Window {
+class ENGINE_API Window {
+	ENGINE_VECTOR2<size_t> size_;
+	std::string_view title_;
 
+	public:
+		Window(ENGINE_VECTOR2<size_t> size, std::string_view title) {
+		}
 };
 } // namespace Engine
 

@@ -16,6 +16,8 @@
 #include <numeric>
 #include <algorithm>
 #include <limits>
+#include <stdexcept>
+#include <exception>
 
 #include <thread>
 #include <atomic>
