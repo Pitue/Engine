@@ -27,7 +27,7 @@
 #include <climits>
 
 #include <GLFW/glfw3.h>
-#include <GL/freeglut.h>
+#include <glad/glad.h>
 
 #include <libpng16/png.h>
 #include <mpg123.h>
