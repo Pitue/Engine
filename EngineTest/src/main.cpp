@@ -30,10 +30,32 @@ int main() {
 #endif
 
   try {
-    Engine::SetErrorCallback(ErrorCallback);
-    Engine::Init(ENGINE_INIT_EVERYTHING);
+    Engine::Engine *engine = Engine::Engine::CreateEngine();
+    engine->set_error_callback((Engine::error_callback_fn)ErrorCallback);
 
-    Engine::Quit();
+    engine->Init(ENGINE_INIT_EVERYTHING);
+
+    Engine::Window window({ 500, 500 }, "Hello World!");
+    Engine::Event evt;
+    bool running = true;
+    while (running && !window.ShouldClose()) {
+      window.PollEvents();
+      while (window.PullEvent(&evt)) {
+        if (evt.type == Engine::EventType::KEY) {
+          if (evt.key_event.action == GLFW_PRESS) {
+            if (evt.key_event.key == GLFW_KEY_ESCAPE) {
+              running = false;
+              break;
+            }
+          }
+        }
+      }
+
+      window.Clear();
+      window.SwapBuffer();
+    }
+
+    engine->Quit();
   } catch (std::exception &ex) {
     std::cerr << "catched excpetion at main: \"" << ex.what() << "\"\n";
     return EXIT_FAILURE;

@@ -12,14 +12,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\def.h" />
+    <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\Engine\include.h" />
+    <ClInclude Include="include\Event.h" />
     <ClInclude Include="include\extern.h" />
     <ClInclude Include="include\misc.h" />
     <ClInclude Include="include\pch.h" />
     <ClInclude Include="include\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\Color.h" />
     <ClCompile Include="include\types.h" />
+    <ClCompile Include="src\Engine.cpp" />
+    <ClCompile Include="src\Event.cpp" />
     <ClCompile Include="src\extern.cpp" />
     <ClCompile Include="src\misc.cpp" />
     <ClCompile Include="src\pch.cpp">

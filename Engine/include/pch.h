@@ -18,6 +18,7 @@
 #include <limits>
 #include <stdexcept>
 #include <exception>
+#include <queue>
 
 #include <thread>
 #include <atomic>

@@ -6,20 +6,21 @@
 #include "extern.h"
 
 namespace Engine {
-void ENGINE_API Throw(std::string_view msg);
-void ENGINE_API Log(std::string_view msg);
-
 std::string ENGINE_API GetTimeStr(std::string_view fmt = "%c", time_t time = 0,
                                   size_t buf_size = 128);
 void ENGINE_API GetTimeStr(char *buf, size_t size, std::string_view fmt = "%c",
                            time_t time = 0);
+std::string ENGINE_API GetKeyName(int key, int scancode);
 
-std::string ENGINE_API GetDescription();
-
-void ENGINE_API SetErrorCallback(std::function<bool(std::exception)> fnct);
-
-void ENGINE_API Init(InitFlags flags);
-void ENGINE_API Quit(bool force = false);
+void KeyCallback(GLFWwindow *window, int key, int scancode, int action,
+                 int mode);
+void TextInputCallback(GLFWwindow *window, unsigned int codepoint);
+void CursorPositionCallback(GLFWwindow *window, double xpos, double ypos);
+void CurosorEnterCallback(GLFWwindow *window, int entered);
+void MouseButtonCallback(GLFWwindow *window, int button, int action, int mods);
+void ScrollCallback(GLFWwindow *window, double xoffset, double yoffset);
+void DropCallback(GLFWwindow *window, int count, const char **paths);
+void JoystickConnectCallback(int jid, int event);
 
 } // namespace Engine
 

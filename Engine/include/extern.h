@@ -3,11 +3,13 @@
 
 #include "types.h"
 
+#include "Event.h"
+
 namespace Engine {
-	extern bool initialized;
-	extern bool error_handled;
-	extern std::function<bool(std::exception)> error_callback;
-	extern InitFlags init_flags;
-}
+class Engine;
+
+extern Engine *e_engine;
+extern std::list<Event> e_event_list;
+} // namespace Engine
 
 #endif // !ENGINE_EXTERN_H

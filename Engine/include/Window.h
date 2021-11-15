@@ -3,15 +3,41 @@
 
 #include "def.h"
 #include "types.h"
+#include "Engine.h"
+#include "extern.h"
+
+#include "Event.h"
+#include "Color.h"
 
 namespace Engine {
 class ENGINE_API Window {
-	ENGINE_VECTOR2<size_t> size_;
-	std::string_view title_;
+  Vector2i size_;
+  std::string title_;
+  GLFWwindow *window_;
 
-	public:
-		Window(ENGINE_VECTOR2<size_t> size, std::string_view title) {
-		}
+public:
+  Window(Vector2i size, std::string title,
+         GLFWmonitor *monitor = nullptr);
+  ~Window();
+  inline operator GLFWwindow*() {
+    return window_;
+  } 
+
+  inline void Clear(Color color = ENGINE_COLOR_WHITE) {
+    glClearColor(color.r, color.g, color.b, color.a);
+    glClear(GL_COLOR_BUFFER_BIT);
+  }
+  inline void SwapBuffer() {
+    glfwSwapBuffers(window_);
+  }
+  inline void PollEvents() const {
+    glfwPollEvents();
+  }
+  bool PullEvent(Event *evt);
+
+  inline bool ShouldClose() const {
+    return glfwWindowShouldClose(window_);
+  }
 };
 } // namespace Engine
 

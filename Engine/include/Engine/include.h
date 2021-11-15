@@ -6,6 +6,7 @@
 #include "types.h"
 #include "def.h"
 
+#include "Engine.h"
 #include "Window.h"
 
 #endif // !ENGINE_ENGINE_INCLUDE_H
