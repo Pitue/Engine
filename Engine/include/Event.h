@@ -31,9 +31,12 @@ struct ENGINE_API DropEvent {
   int count;
   const char **paths;
 };
+struct ENGINE_API WindowResizeEvent {
+  int w, h;
+};
 
 struct ENGINE_API Event {
-  GLFWwindow* window;
+  GLFWwindow *window;
   EventType type;
 
   union {
@@ -45,18 +48,20 @@ struct ENGINE_API Event {
     ScrollEvent scroll_event;
     JoystickConnectEvent joystick_connect_event;
     DropEvent drop_event;
+    WindowResizeEvent window_resize_event;
   };
 
   Event();
-  Event(GLFWwindow* window, EventType event);
-  Event(GLFWwindow* window, EventType event, KeyEvent evt);
-  Event(GLFWwindow* window, EventType event, TextEvent evt);
-  Event(GLFWwindow* window, EventType event, CursorPositionEvent evt);
-  Event(GLFWwindow* window, EventType event, CursorEnterEvent evt);
-  Event(GLFWwindow* window, EventType event, MouseButtonEvent evt);
-  Event(GLFWwindow* window, EventType event, ScrollEvent evt);
-  Event(GLFWwindow* window, EventType event, JoystickConnectEvent evt);
-  Event(GLFWwindow* window, EventType event, DropEvent evt);
+  Event(GLFWwindow *window, EventType event);
+  Event(GLFWwindow *window, EventType event, KeyEvent evt);
+  Event(GLFWwindow *window, EventType event, TextEvent evt);
+  Event(GLFWwindow *window, EventType event, CursorPositionEvent evt);
+  Event(GLFWwindow *window, EventType event, CursorEnterEvent evt);
+  Event(GLFWwindow *window, EventType event, MouseButtonEvent evt);
+  Event(GLFWwindow *window, EventType event, ScrollEvent evt);
+  Event(GLFWwindow *window, EventType event, JoystickConnectEvent evt);
+  Event(GLFWwindow *window, EventType event, DropEvent evt);
+  Event(GLFWwindow *window, EventType event, WindowResizeEvent evt);
 };
 
 } // namespace Engine

@@ -19,6 +19,7 @@
 #include <stdexcept>
 #include <exception>
 #include <queue>
+#include <filesystem>
 
 #include <thread>
 #include <atomic>
@@ -36,6 +37,7 @@
 #include <mpg123.h>
 
 #include <glm/common.hpp>
+#include <glm/mat2x2.hpp>
 
 #include <lua.hpp>
 

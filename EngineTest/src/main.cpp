@@ -35,7 +35,7 @@ int main() {
 
     engine->Init(ENGINE_INIT_EVERYTHING);
 
-    Engine::Window window({ 500, 500 }, "Hello World!");
+    Engine::Window window({ 500, 500 }, "Hello World!", Engine::WindowFlags::RESIZEABLE);
     Engine::Event evt;
     bool running = true;
     while (running && !window.ShouldClose()) {
@@ -49,9 +49,9 @@ int main() {
             }
           }
         }
-      }
+      }      
 
-      window.Clear();
+      window.Clear(ENGINE_COLOR_BLACK);
       window.SwapBuffer();
     }
 

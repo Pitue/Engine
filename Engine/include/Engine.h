@@ -27,6 +27,7 @@ public:
 	void Quit(bool force = false);
 	
 	void Throw(std::string_view msg);
+	void Throw(std::initializer_list<std::string> msg);
 	void Log(std::string_view msg);
 
 	std::string GetDescription();

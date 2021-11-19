@@ -22,6 +22,8 @@ void ScrollCallback(GLFWwindow *window, double xoffset, double yoffset);
 void DropCallback(GLFWwindow *window, int count, const char **paths);
 void JoystickConnectCallback(int jid, int event);
 
+void FramebufferSizeCallback(GLFWwindow *window, int w, int h);
+
 } // namespace Engine
 
 #endif // !ENGINE_MISC_H

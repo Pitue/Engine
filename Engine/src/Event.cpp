@@ -53,4 +53,7 @@ Engine::Event::Event(GLFWwindow *window, EventType event, DropEvent evt)
   drop_event = std::move(evt);
 }
 
-
+Engine::Event::Event(GLFWwindow* window, EventType event, WindowResizeEvent evt)
+  : Event(window, event) {
+  window_resize_event = std::move(evt);
+}

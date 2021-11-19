@@ -7,6 +7,7 @@ namespace Engine {
 	};
 
 #define ENGINE_COLOR_WHITE ::Engine::Color{1.f, 1.f, 1.f, 1.f}
+#define ENGINE_COLOR_BLACK ::Engine::Color{0.f, 0.f, 0.f, 0.f}
 }
 
 #endif

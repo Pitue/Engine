@@ -16,7 +16,7 @@ class ENGINE_API Window {
   GLFWwindow *window_;
 
 public:
-  Window(Vector2i size, std::string title,
+  Window(Vector2i size, std::string title, WindowFlags flags,
          GLFWmonitor *monitor = nullptr);
   ~Window();
   inline operator GLFWwindow*() {
@@ -37,6 +37,11 @@ public:
 
   inline bool ShouldClose() const {
     return glfwWindowShouldClose(window_);
+  }
+
+  /*The viewport is set to (0,0, size_x, size_y) initially*/
+  inline void set_viewport(glm::tmat2x2<int> viewport) {
+    glViewport(viewport[0][0], viewport[0][1], viewport[1][0], viewport[1][1]);
   }
 };
 } // namespace Engine

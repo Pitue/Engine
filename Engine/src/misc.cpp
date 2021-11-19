@@ -27,6 +27,11 @@ void DropCallback(GLFWwindow *window, int count, const char **paths) {
   e_event_list.emplace_back(window, EventType::DROP, DropEvent{ count, paths });
 }
 
+void FramebufferSizeCallback(GLFWwindow* window, int w, int h) {
+  glViewport(0, 0, w, h);
+  e_event_list.emplace_back(window, EventType::WINDOW_RESIZE, WindowResizeEvent{ w, h });
+}
+
 
 std::string GetTimeStr(std::string_view fmt, time_t time, size_t buf_size) {
   if (!time)

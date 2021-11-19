@@ -33,7 +33,9 @@ namespace Engine {
       glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
       glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
       glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-      glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+#if defined(__APPLE__)
+      glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+#endif
     }
 
     initialized_ = true;
@@ -57,6 +59,13 @@ namespace Engine {
     else if (!error_callback_(exc)) {
       Quit(true);
     }
+  }
+  void Engine::Throw(std::initializer_list<std::string> msg) {
+    std::stringstream ss;
+    for (auto &str : msg) {
+      ss << str;
+    }
+    Throw(ss.str());
   }
   void Engine::Log(std::string_view msg) {
 #ifdef _DEBUG
